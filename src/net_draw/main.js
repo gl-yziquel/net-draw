@@ -12,8 +12,9 @@ const filename = process.argv[2];
 try {
   const yamlData = fs.readFileSync(filename, 'utf8');
   const parsedData = yaml.safeLoad(yamlData);
-  draw(parsedData)
 } catch (err) {
   console.error(`Error reading or parsing the YAML file: ${err.message}`);
   process.exit(1);
 }
+
+draw(parsedData)
