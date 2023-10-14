@@ -2,7 +2,9 @@
   "name": "net_draw",
   "version": "0.1.dev",
   "description": "Exporting YAML description of network topologies to SVG",
-  "bin": "src/net_draw/main.js",
+  "bin": {
+    "net_draw": "src/net_draw/main.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
