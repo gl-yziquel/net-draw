@@ -1,6 +1,12 @@
 #!/usr/bin/env node
 const fs = require('fs');
 const yaml = require('js-yaml');
+
+const { JSDOM } = require('jsdom');
+const { window } = new JSDOM();
+global.window = window;
+global.document = window.document;
+
 const d4 = require('./dld4e-draw');
 
 if (process.argv.length !== 3) {
