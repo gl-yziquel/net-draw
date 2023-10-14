@@ -10,5 +10,8 @@
   },
   "keywords": [],
   "author": "Guillaume Yziquel <guillaume@vizyon.ai>",
-  "license": "Proprietary"
+  "license": "Proprietary",
+  "dependencies": {
+    "jsdom": "^22.1.0"
+  }
 }
