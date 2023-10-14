@@ -12,7 +12,7 @@
   "author": "Guillaume Yziquel <guillaume@vizyon.ai>",
   "license": "Proprietary",
   "dependencies": {
-    "d3": "^7.8.5",
+    "d3": "^4.2.4",
     "jsdom": "^22.1.0"
   }
 }
