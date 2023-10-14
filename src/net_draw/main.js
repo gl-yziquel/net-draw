@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const fs = require('fs');
 const yaml = require('js-yaml');
+const d4 = require('./dld4e-draw');
 
 if (process.argv.length !== 3) {
   console.error('Usage: node read-yaml.js <filename>');
@@ -9,12 +10,13 @@ if (process.argv.length !== 3) {
 
 const filename = process.argv[2];
 
+let parsedData;
 try {
   const yamlData = fs.readFileSync(filename, 'utf8');
-  const parsedData = yaml.safeLoad(yamlData);
+  parsedData = yaml.safeLoad(yamlData);
 } catch (err) {
   console.error(`Error reading or parsing the YAML file: ${err.message}`);
   process.exit(1);
 }
 
-draw(parsedData)
+d4.draw(parsedData);

@@ -122,3 +122,7 @@ function draw(doc) {
   svg.selectAll('.iconLabel')
     .each( function(d) { d3.select(this).moveToFront(); } )
 };
+
+module.exports = {
+  draw,
+};
