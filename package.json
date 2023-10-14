@@ -1,6 +1,6 @@
 {
   "name": "net_draw",
-  "version": "0.1.dev",
+  "version": "0.1.0",
   "description": "Exporting YAML description of network topologies to SVG",
   "bin": {
     "net_draw": "src/net_draw/main.js"
