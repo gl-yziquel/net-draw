@@ -2,6 +2,8 @@ const { JSDOM } = require('jsdom');
 const { window } = new JSDOM();
 const document = window.document;
 
+const d3 = require('d3');
+
 function draw(doc) {
   // set the drawing defaults
   var drawingDefaults = {
