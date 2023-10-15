@@ -35,6 +35,6 @@ try {
 
 (async () => {
   d4.draw(parsedData)
-  console.log("Done")
+  console.log(global.window.document.documentElement.outerHTML)
   process.exit(0)
 })()
