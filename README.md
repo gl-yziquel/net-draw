@@ -1,7 +1,7 @@
 (Broken) CLI to generate SVG from Draw-the-net YAML description of network topologies
 =====================================================================================
 
-This repository is inspired from the [Draw-the-Net web application](https://github.com/cidrblock/drawthe.net). As such, it is not even remotely useful nor complete, let even in prototype status. Its purpose is to illustrate and provide meat and context to a GitHub pull request on the [JSDOM polyfill library](https://github.com/jsdom/jsdom) concerning the SVG `.getBoundingClientRect()` method.
+This repository is inspired from the [Draw-the-Net web application](https://github.com/cidrblock/drawthe.net). As such, it is not even remotely useful nor complete, let even in prototype status. DO NOT USE. Its purpose is to illustrate and provide meat and context to a GitHub pull request on the [JSDOM polyfill library](https://github.com/jsdom/jsdom) concerning the SVG `.getBoundingClientRect()` method.
 
 For the overall context, see the [Draw-the-Net demo](http://go.drawthe.net/).
 
