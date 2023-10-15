@@ -12,8 +12,10 @@
   "author": "Guillaume Yziquel <guillaume@vizyon.ai>",
   "license": "Proprietary",
   "dependencies": {
+    "code-prettify": "^0.1.0",
     "d3": "^4.2.4",
     "jsdom": "^22.1.0",
+    "requirejs": "^2.3.6",
     "showdown": "^1.5.5",
     "showdown-prettify": "^1.3.0"
   }

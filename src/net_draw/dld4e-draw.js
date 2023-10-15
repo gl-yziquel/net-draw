@@ -6,6 +6,20 @@ const d4_groups = require('./dld4e-groups.js');
 const d4_connections = require('./dld4e-connections.js');
 const d4_icons = require('./dld4e-icons.js');
 const d4_notes = require('./dld4e-notes.js');
+const requirejs = require('requirejs');
+
+requirejs.config({
+  baseUrl: __dirname,
+  paths: {
+    'code-prettify': 'node_modules/code-prettifier/loader'
+  }
+})
+
+let PR
+
+PR = await new Promise((resolve, reject) => {
+  requirejs(['code-prettify'], resolve)
+})
 
 function draw(doc) {
   // set the drawing defaults
