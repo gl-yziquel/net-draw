@@ -35,6 +35,8 @@ try {
 
 (async () => {
   d4.draw(parsedData)
-  console.log(global.window.document.documentElement.outerHTML)
+  const html = global.window.document
+  const svgElement = document.querySelector('svg')
+  console.log(svgElement.outerHTML)
   process.exit(0)
 })()
