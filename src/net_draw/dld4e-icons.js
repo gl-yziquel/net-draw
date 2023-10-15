@@ -1,4 +1,5 @@
 const d3 = require('d3');
+const d4_process = require('./dld4e-process.js')
 
 var drawIcons = function (svg, diagram, icons, iconTextRatio) {
   var deviceCellsAll = svg.selectAll("cells")
@@ -34,7 +35,7 @@ var drawIcons = function (svg, diagram, icons, iconTextRatio) {
     .text( function (d) { return d.value.text || d.key })
     .each( function(d) {
       d.value.fontSize = Math.floor(Math.min(d.value.width*.9 / this.getComputedTextLength() * 12, d.value.height/2*iconTextRatio))
-      d.value.textPosition = textPositions(0,0,d.value.width,d.value.height,d.value.fontSize + 2)[d.value.textLocation]
+      d.value.textPosition = d4_process.textPositions(0,0,d.value.width,d.value.height,d.value.fontSize + 2)[d.value.textLocation]
       if (d.value.url) {
         var text = d3.select(this)
         text.on("click", function() { window.open(d.value.url); })

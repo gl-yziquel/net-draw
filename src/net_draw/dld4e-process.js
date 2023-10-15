@@ -181,5 +181,6 @@ d3.selection.prototype.moveToBack = function() {
 module.exports = {
   processEntities,
   processConnections,
-  processGroups
+  processGroups,
+  textPositions,
 };
