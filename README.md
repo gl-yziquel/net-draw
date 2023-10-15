@@ -12,3 +12,5 @@ The original codebase has been migrated to a setting where browser based functio
 Execute `just run` to run the code on a sample YAML file, and `just clean` to clean up.
 
 To generate the `urls.svg` file from the network topology description in `urls.yaml`, you can also perform `npx net_draw urls.yaml > urls.svg`.
+
+**NOTA BENE**: All this is a quick hack.
