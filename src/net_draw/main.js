@@ -5,7 +5,13 @@ const yaml = require('js-yaml');
 const htmlContent = fs.readFileSync('webpage.html', 'utf-8');
 
 const { JSDOM } = require('jsdom');
-const { window } = new JSDOM(htmlContent);
+const { window } = new JSDOM(htmlContent, {
+  beforeParse(window) {
+    window.Element.prototype.getComputedTextLength = function() {
+      return 200
+    }
+  }
+});
 global.window = window;
 global.document = window.document;
 
