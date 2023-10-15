@@ -33,4 +33,8 @@ try {
   process.exit(1);
 }
 
-d4.draw(parsedData);
+(async () => {
+  d4.draw(parsedData)
+  console.log("Done")
+  process.exit(0)
+})()

@@ -147,7 +147,6 @@ async function draw(doc) {
   d4_icons.drawIcons(svg, diagram, icons, diagram.iconTextRatio)
   d4_notes.drawNotes(svg, diagram, notes)
   let PR = await load_PR()
-  console.log(PR)
   PR.prettyPrint()
 
   // move all the labels to the front
