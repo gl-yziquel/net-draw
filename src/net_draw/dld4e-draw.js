@@ -9,6 +9,7 @@ const d4_notes = require('./dld4e-notes.js');
 const requirejs = require('requirejs');
 
 requirejs.config({
+  nodeRequire: require,
   baseUrl: __dirname,
   paths: {
     'code-prettify': 'node_modules/code-prettifier/loader'
@@ -17,11 +18,21 @@ requirejs.config({
 
 let PR
 
-PR = await new Promise((resolve, reject) => {
-  requirejs(['code-prettify'], resolve)
-})
+global.window.define = function(name, args, response) {
+  PR = response()
+}
 
-function draw(doc) {
+global.window.define.amd = true
+
+function load_PR() {
+  return new Promise((resolve, reject) => {
+    requirejs(['code-prettify'], function(mod) {
+      return resolve(PR)
+    })
+  })
+}
+
+async function draw(doc) {
   // set the drawing defaults
   var drawingDefaults = {
     fill: "orange",
@@ -135,6 +146,8 @@ function draw(doc) {
   d4_connections.drawConnections(svg, diagram, connections, icons, notes)
   d4_icons.drawIcons(svg, diagram, icons, diagram.iconTextRatio)
   d4_notes.drawNotes(svg, diagram, notes)
+  let PR = await load_PR()
+  console.log(PR)
   PR.prettyPrint()
 
   // move all the labels to the front
