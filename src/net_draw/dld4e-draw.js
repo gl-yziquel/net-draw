@@ -5,6 +5,7 @@ const d4_gridlines = require('./dld4e-gridlines.js');
 const d4_groups = require('./dld4e-groups.js');
 const d4_connections = require('./dld4e-connections.js');
 const d4_icons = require('./dld4e-icons.js');
+const d4_notes = require('./dld4e-notes.js');
 
 function draw(doc) {
   // set the drawing defaults
@@ -119,7 +120,7 @@ function draw(doc) {
   d4_groups.drawGroups(svg, diagram, groups, icons)
   d4_connections.drawConnections(svg, diagram, connections, icons, notes)
   d4_icons.drawIcons(svg, diagram, icons, diagram.iconTextRatio)
-  drawNotes(svg, diagram, notes)
+  d4_notes.drawNotes(svg, diagram, notes)
   PR.prettyPrint()
 
   // move all the labels to the front
