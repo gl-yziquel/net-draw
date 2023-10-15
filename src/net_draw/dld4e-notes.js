@@ -1,3 +1,7 @@
+const showdown = require('showdown')
+require('showdown-prettify')
+const d3 = require('d3')
+
 var drawNotes = function (svg, diagram, notes) {
 
   var converter = new showdown.Converter({extensions: ['prettify']});
