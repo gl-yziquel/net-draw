@@ -1,4 +1,10 @@
 const d3 = require('d3');
+const d4_process = require('./dld4e-process.js');
+const d4_title = require('./dld4e-title.js');
+const d4_gridlines = require('./dld4e-gridlines.js');
+const d4_groups = require('./dld4e-groups.js');
+const d4_connections = require('./dld4e-connections.js');
+const d4_icons = require('./dld4e-icons.js');
 
 function draw(doc) {
   // set the drawing defaults
@@ -102,17 +108,17 @@ function draw(doc) {
       .attr("transform", "translate(" + (parentBox.width - svgWidth)/2 + "," + (parentBox.height - svgHeight)/2 + ")");
 
   // set x1,y1,x2,y2,width,height,centerX and centerY for all the stuff
-  notes = processEntities(svg, diagram, notes)
-  icons = processEntities(svg, diagram, icons)
-  connections = processConnections(connections, groups, icons)
-  groups = processGroups(groups, diagram, icons)
+  notes = d4_process.processEntities(svg, diagram, notes)
+  icons = d4_process.processEntities(svg, diagram, icons)
+  connections = d4_process.processConnections(connections, groups, icons)
+  groups = d4_process.processGroups(groups, diagram, icons)
 
   // draw all the things
-  drawTitle(svg, diagram, title)
-  drawGridLines(svg, diagram)
-  drawGroups(svg, diagram, groups, icons)
-  drawConnections(svg, diagram, connections, icons, notes)
-  drawIcons(svg, diagram, icons, diagram.iconTextRatio)
+  d4_title.drawTitle(svg, diagram, title)
+  d4_gridlines.drawGridLines(svg, diagram)
+  d4_groups.drawGroups(svg, diagram, groups, icons)
+  d4_connections.drawConnections(svg, diagram, connections, icons, notes)
+  d4_icons.drawIcons(svg, diagram, icons, diagram.iconTextRatio)
   drawNotes(svg, diagram, notes)
   PR.prettyPrint()
 

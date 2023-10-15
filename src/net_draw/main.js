@@ -2,8 +2,10 @@
 const fs = require('fs');
 const yaml = require('js-yaml');
 
+const htmlContent = fs.readFileSync('webpage.html', 'utf-8');
+
 const { JSDOM } = require('jsdom');
-const { window } = new JSDOM();
+const { window } = new JSDOM(htmlContent);
 global.window = window;
 global.document = window.document;
 
