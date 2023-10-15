@@ -1,35 +1,14 @@
 (Broken) CLI to generate SVG from Draw-the-net YAML description of network topologies
 =====================================================================================
 
-This repository is inspired from the [Draw-the-Net web application](https://github.com/cidrblock/drawthe.net). As such, it is not even remotely useful nor complete, let even in prototype status. DO NOT USE. Its purpose is to illustrate and provide meat and context to a GitHub pull request on the [JSDOM polyfill library](https://github.com/jsdom/jsdom) concerning the SVG `.getBoundingClientRect()` method.
+This repository is inspired from the [Draw-the-Net web application](https://github.com/cidrblock/drawthe.net). As such, it is not even remotely useful nor complete, let even in prototype status. DO NOT USE. Its purpose has been to extract the Draw-the-Net into one single command line interface, for command line consumption.
+
+Status: It does generate an SVG seemingly correctly, but the height and width is therein set to 0. So: not satisfactory status. Nonetheless, the code extraction from the browser oriented javascript to pure node.js javascript has been performed. Please do feel free to capitalise on that work should you wish to provide satisfactory SVG files as output from the YAML Draw-the-Net format.
 
 For the overall context, see the [Draw-the-Net demo](http://go.drawthe.net/).
 
-This repo has (only begun to) cannibalise the Draw-the-Net codebase in the expectation of providing a CLI able, in node js, to convert a YAML description of a network topology into an SVG graphical representation. As such, it relies on functionalities of a web browser to correctly render SVG on a DOM, which functionality is not present in a node js runtime. The JSDOM library provides a polyfill able to provide a DOM to node js; alas, its SVG support is lacking. Which is highlighted below:
+The original codebase has been migrated to a setting where browser based functionalities are handled by the JSDOM polyfill library. The present codebase is likely an interesting testbed, should one wish to improve the support for SVG in JSDOM.
 
 Execute `just run` to run the code on a sample YAML file, and `just clean` to clean up.
 
-```console
-mini-me@virtucon ~/git/draw-net-cli (master)> just run
-pnpm install
-Lockfile is up to date, resolution step is skipped
-Already up to date
-Done in 808ms
-npx net_draw urls.yaml
-/home/mini-me/git/draw-net-cli/src/net_draw/dld4e-draw.js:45
-  var parentBox = d3.select("#svg").node().getBoundingClientRect()
-                                          ^
-
-TypeError: Cannot read properties of null (reading 'getBoundingClientRect')
-    at Object.draw (/home/mini-me/git/draw-net-cli/src/net_draw/dld4e-draw.js:45:43)
-    at Object.<anonymous> (/home/mini-me/git/draw-net-cli/src/net_draw/main.js:28:4)
-    at Module._compile (node:internal/modules/cjs/loader:1241:14)
-    at Module._extensions..js (node:internal/modules/cjs/loader:1295:10)
-    at Module.load (node:internal/modules/cjs/loader:1091:32)
-    at Module._load (node:internal/modules/cjs/loader:938:12)
-    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:83:12)
-    at node:internal/main/run_main_module:23:47
-
-Node.js v20.7.0
-error: Recipe `run` failed on line 10 with exit code 1
-```
+To generate the `urls.svg` file from the network topology description in `urls.yaml`, you can also perform `npx net_draw urls.yaml > urls.svg`.
