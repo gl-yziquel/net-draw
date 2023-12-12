@@ -1,7 +1,3 @@
-// All the require declarations below are commented because require is a node
-// specific construct and is not available within the headless browser managed
-// by puppeteer.
-/*
 const d3 = require('d3');
 const d4_process = require('./dld4e-process.js');
 const d4_title = require('./dld4e-title.js');
@@ -10,8 +6,7 @@ const d4_groups = require('./dld4e-groups.js');
 const d4_connections = require('./dld4e-connections.js');
 const d4_icons = require('./dld4e-icons.js');
 const d4_notes = require('./dld4e-notes.js');
-const requirejs = require('requirejs');
-*/
+//const requirejs = require('requirejs');
 
 // Commented. requirejs is not available within puppeteer.
 /*
@@ -89,9 +84,12 @@ async function draw(doc) {
 
   // set the background color of the whole page
   document.body.style.background = diagram.fill
+  console.log("Distress flare !", document.documentElement.outerHTML)
+  console.log(typeof d3)
 
   // find a good fit for the diagram
   var parentBox = d3.select("#svg").node().getBoundingClientRect()
+  console.log("Distress flare !", document.documentElement.outerHTML)
   var ratios = diagram.aspectRatio.split(':')
 
   // set the desired h/w
@@ -181,3 +179,6 @@ module.exports = {
   draw,
 };
 */
+
+// Exporting to global object to access draw() after browserify.
+globalThis.window.draw = draw

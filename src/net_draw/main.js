@@ -59,8 +59,9 @@ try {
     }
   });
   const readFileAsync = util.promisify(fs.readFile);
-  const dld4eDraw = await readFileAsync('src/net_draw/dld4e-draw.js', 'utf-8');
-  await page.evaluate(dld4eDraw);
+  const d4 = await readFileAsync('target/d4.js', 'utf-8');
+  console.log(d4)
+  await page.evaluate(d4);
   const d4Code = (networkData) => {
     draw(networkData)
     const html = globalThis.window.document

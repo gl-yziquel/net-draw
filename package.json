@@ -6,6 +6,7 @@
     "net_draw": "src/net_draw/main.js"
   },
   "scripts": {
+    "browserify": "mkdir -p target && browserify src/net_draw/dld4e-draw.js > target/d4.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
