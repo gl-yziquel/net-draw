@@ -5,12 +5,13 @@ const yaml = require('js-yaml');
 const htmlContent = fs.readFileSync('webpage.html', 'utf-8');
 
 //const { JSDOM } = require('jsdom');
-const puppeeter = require('puppeteer');
+const puppeteer = require('puppeteer');
 
 async function loadContents() {
   const browser = await puppeteer.launch();
   const page = await browser.newPage()
   await page.setContent(htmlContent);
+  return page;
 }
 
 // see the link below for a puppeteer replacement of the commented out code.
@@ -50,9 +51,13 @@ try {
 }
 
 (async () => {
-  d4.draw(parsedData)
-  const html = global.window.document
-  const svgElement = document.querySelector('svg')
-  console.log(svgElement.outerHTML)
-  process.exit(0)
+  page = await loadContents();
+  const d4Code = () => {
+    d4.draw(parsedData)
+    const html = global.window.document
+    const svgElement = document.querySelector('svg')
+  };
+  await page.evaluate(d4Code);
+  console.log(svgElement.outerHTML);
+  process.exit(0);
 })()
