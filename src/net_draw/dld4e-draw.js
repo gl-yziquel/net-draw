@@ -13,6 +13,8 @@ const d4_notes = require('./dld4e-notes.js');
 const requirejs = require('requirejs');
 */
 
+// Commented. requirejs is not available within puppeteer.
+/*
 requirejs.config({
   nodeRequire: require,
   baseUrl: __dirname,
@@ -20,6 +22,7 @@ requirejs.config({
     'code-prettify': 'node_modules/code-prettifier/loader'
   }
 })
+*/
 
 // The code below is a really ugly hack to get the module system to work more
 // or less ok in node. The code was initially extracted from some code made
