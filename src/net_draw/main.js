@@ -8,7 +8,7 @@ const htmlContent = fs.readFileSync('webpage.html', 'utf-8');
 const puppeteer = require('puppeteer');
 
 async function loadContents() {
-  const browser = await puppeteer.launch(headless: "new");
+  const browser = await puppeteer.launch({headless: "new"});
   const page = await browser.newPage()
   await page.setContent(htmlContent);
   return page;
