@@ -53,6 +53,11 @@ try {
 
 (async () => {
   page = await loadContents();
+  page.on('console', (msg) => {
+    for (let i = 0; i < msg.args().length; ++i) {
+      console.log(`[Puppeteer Console] ${i}: ${msg.args()[i]}`);
+    }
+  });
   const readFileAsync = util.promisify(fs.readFile);
   const dld4eDraw = await readFileAsync('src/net_draw/dld4e-draw.js', 'utf-8');
   await page.evaluate(dld4eDraw);
@@ -60,6 +65,7 @@ try {
     draw(networkData)
     const html = globalThis.window.document
     const svgElement = document.querySelector('svg')
+    console.log("Code execution in pupeteer terminated.")
     return svgElement
   }; 
   svgElement = await page.evaluate(d4Code, parsedData);
