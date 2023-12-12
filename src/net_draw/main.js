@@ -58,7 +58,7 @@ try {
   await page.evaluate(dld4eDraw);
   const d4Code = (networkData) => {
     draw(networkData)
-    const html = global.window.document
+    const html = globalThis.window.document
     const svgElement = document.querySelector('svg')
   }; 
   await page.evaluate(d4Code, parsedData);
