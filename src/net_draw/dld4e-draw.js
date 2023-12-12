@@ -84,12 +84,9 @@ async function draw(doc) {
 
   // set the background color of the whole page
   document.body.style.background = diagram.fill
-  console.log("Distress flare !", document.documentElement.outerHTML)
-  console.log(typeof d3)
 
   // find a good fit for the diagram
   var parentBox = d3.select("#svg").node().getBoundingClientRect()
-  console.log("Distress flare !", document.documentElement.outerHTML)
   var ratios = diagram.aspectRatio.split(':')
 
   // set the desired h/w
