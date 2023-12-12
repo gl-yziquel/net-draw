@@ -34,7 +34,7 @@ calling node system. This is why the code below is commented.
 //const d4 = require('./dld4e-draw');
 
 if (process.argv.length !== 3) {
-  console.error('Usage: node read-yaml.js <filename>');
+  console.error('Usage: net_draw <filename>');
   process.exit(1);
 }
 
