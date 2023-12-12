@@ -27,7 +27,11 @@ global.window = window;
 global.document = window.document;
 */
 
-const d4 = require('./dld4e-draw');
+/*
+TODO: The require below should be run in the chrome browser. Not in the
+calling node system. This is why the code below is commented.
+*/
+//const d4 = require('./dld4e-draw');
 
 if (process.argv.length !== 3) {
   console.error('Usage: node read-yaml.js <filename>');
