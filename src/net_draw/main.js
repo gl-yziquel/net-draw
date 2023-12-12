@@ -7,6 +7,8 @@ const htmlContent = fs.readFileSync('webpage.html', 'utf-8');
 //const { JSDOM } = require('jsdom');
 const puppeeter = require('puppeteer');
 
+// see the link below for a puppeteer replacement of the commented out code.
+// https://stackoverflow.com/questions/71452506/loading-html-into-chrome-followed-by-jsdom-instance
 /*
 const { window } = new JSDOM(htmlContent, {
   beforeParse(window) {
