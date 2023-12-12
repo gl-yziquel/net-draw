@@ -53,14 +53,14 @@ try {
 
 (async () => {
   page = await loadContents();
+  const readFileAsync = util.promisify(fs.readFile);
+  const dld4eDraw = await readFileAsync('src/net_draw/dld4e-draw.js', 'utf-8');
+  await page.evaluate(dld4eDraw);
   const d4Code = () => {
     d4.draw(parsedData)
     const html = global.window.document
     const svgElement = document.querySelector('svg')
-  };
-  const readFileAsync = util.promisify(fs.readFile);
-  const dld4eDraw = await readFileAsync('src/net_draw/dld4e-draw.js', 'utf-8');
-  await page.evaluate(dld4eDraw);
+  }; 
   await page.evaluate(d4Code);
   console.log(svgElement.outerHTML);
   process.exit(0);
