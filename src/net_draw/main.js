@@ -60,13 +60,13 @@ try {
   });
   const readFileAsync = util.promisify(fs.readFile);
   const d4 = await readFileAsync('target/d4.js', 'utf-8');
-  console.log(d4)
   await page.evaluate(d4);
   const d4Code = (networkData) => {
     draw(networkData)
     const html = globalThis.window.document
     const svgElement = document.querySelector('svg')
     console.log("Code execution in pupeteer terminated.")
+    console.log(svgElement.outerHTML)
     return svgElement
   }; 
   svgElement = await page.evaluate(d4Code, parsedData);
