@@ -5,7 +5,7 @@ const yaml = require('js-yaml');
 const htmlContent = fs.readFileSync('webpage.html', 'utf-8');
 
 //const { JSDOM } = require('jsdom');
-import puppeeter from 'puppeteer';
+const puppeeter = require('puppeteer');
 
 const { window } = new JSDOM(htmlContent, {
   beforeParse(window) {
