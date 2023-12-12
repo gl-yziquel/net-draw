@@ -7,6 +7,7 @@ const htmlContent = fs.readFileSync('webpage.html', 'utf-8');
 //const { JSDOM } = require('jsdom');
 const puppeeter = require('puppeteer');
 
+/*
 const { window } = new JSDOM(htmlContent, {
   beforeParse(window) {
     window.Element.prototype.getComputedTextLength = function() {
@@ -16,6 +17,7 @@ const { window } = new JSDOM(htmlContent, {
 });
 global.window = window;
 global.document = window.document;
+*/
 
 const d4 = require('./dld4e-draw');
 
