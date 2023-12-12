@@ -16,8 +16,16 @@ requirejs.config({
   }
 })
 
+// The code below is a really ugly hack to get the module system to work more
+// or less ok in node. The code was initially extracted from some code made
+// for the browser and adapted to node. We are now trying to get that code
+// executed back into a puppeteer browser in a more or less clean and modular
+// way. This code is thus commented in order to make that port to puppeteer
+// fail where the problem really is. Force fail to debug attitude. Thug life.
+/*
 let PR
 
+// Use globalThis instead of window, and push that code into puppeteer.
 global.window.define = function(name, args, response) {
   PR = response()
 }
@@ -31,6 +39,7 @@ function load_PR() {
     })
   })
 }
+*/
 
 async function draw(doc) {
   // set the drawing defaults
