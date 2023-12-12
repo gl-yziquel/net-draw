@@ -65,7 +65,7 @@ async function draw(doc) {
   // set the title defaults
   var titleDefaults = {
     text: "Decent looking diagrams for engineers",
-    subText: "More information can be found at http://github.com/cidrblock/dld4e",
+    subText: "More information can be found at http://github.com/cidrblock/drawthe.net",
     author: "Bradley A. Thornton",
     company: "Self",
     date: new Date().toLocaleDateString(),
