@@ -1,3 +1,7 @@
+// All the require declarations below are commented because require is a node
+// specific construct and is not available within the headless browser managed
+// by puppeteer.
+/*
 const d3 = require('d3');
 const d4_process = require('./dld4e-process.js');
 const d4_title = require('./dld4e-title.js');
@@ -7,6 +11,7 @@ const d4_connections = require('./dld4e-connections.js');
 const d4_icons = require('./dld4e-icons.js');
 const d4_notes = require('./dld4e-notes.js');
 const requirejs = require('requirejs');
+*/
 
 requirejs.config({
   nodeRequire: require,
