@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+const util = require('util');
 const fs = require('fs');
 const yaml = require('js-yaml');
 
@@ -57,6 +58,8 @@ try {
     const html = global.window.document
     const svgElement = document.querySelector('svg')
   };
+  const readFileAsync = util.promisify(fs.readFile);
+  await page.evaluate(await readFileAsync('src/net_draw/dld4e-draw.js', 'utf8'));
   await page.evaluate(d4Code);
   console.log(svgElement.outerHTML);
   process.exit(0);
