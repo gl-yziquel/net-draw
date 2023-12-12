@@ -55,7 +55,7 @@ try {
   page = await loadContents();
   page.on('console', (msg) => {
     for (let i = 0; i < msg.args().length; ++i) {
-      console.log(`[Puppeteer Console] ${i}: ${msg.args()[i]}`);
+      console.error(`[Puppeteer Console] ${i}: ${msg.args()[i]}`);
     }
   });
   const readFileAsync = util.promisify(fs.readFile);
@@ -65,11 +65,9 @@ try {
     draw(networkData)
     const html = globalThis.window.document
     const svgElement = document.querySelector('svg')
-    console.log("Code execution in pupeteer terminated.")
-    console.log(svgElement.outerHTML)
-    return svgElement
+    return svgElement.outerHTML
   }; 
-  svgElement = await page.evaluate(d4Code, parsedData);
-  console.log(svgElement.outerHTML);
+  svg = await page.evaluate(d4Code, parsedData);
+  console.log(svg);
   process.exit(0);
 })()
