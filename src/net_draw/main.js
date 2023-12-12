@@ -60,8 +60,9 @@ try {
     draw(networkData)
     const html = globalThis.window.document
     const svgElement = document.querySelector('svg')
+    return svgElement
   }; 
-  await page.evaluate(d4Code, parsedData);
+  svgElement = await page.evaluate(d4Code, parsedData);
   console.log(svgElement.outerHTML);
   process.exit(0);
 })()
