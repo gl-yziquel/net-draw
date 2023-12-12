@@ -175,6 +175,9 @@ async function draw(doc) {
     .each( function(d) { d3.select(this).moveToFront(); } )
 };
 
+// Commented out node-specific code.
+/*
 module.exports = {
   draw,
 };
+*/

@@ -59,7 +59,8 @@ try {
     const svgElement = document.querySelector('svg')
   };
   const readFileAsync = util.promisify(fs.readFile);
-  await page.evaluate(await readFileAsync('src/net_draw/dld4e-draw.js', 'utf8'));
+  const dld4eDraw = await readFileAsync('src/net_draw/dld4e-draw.js', 'utf-8');
+  await page.evaluate(dld4eDraw);
   await page.evaluate(d4Code);
   console.log(svgElement.outerHTML);
   process.exit(0);
