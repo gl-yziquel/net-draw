@@ -31,4 +31,7 @@ clean up.
 To generate the `urls.svg` file from the network topology description in
 `urls.yaml`, you can also perform `npx net_draw urls.yaml > urls.svg`.
 
+The `npm install -g .` command will install the `net_draw` executable on your
+system.
+
 **NOTA BENE**: All this really is a quick hack.
